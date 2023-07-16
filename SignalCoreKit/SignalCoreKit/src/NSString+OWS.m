@@ -425,17 +425,10 @@ static unichar bidiPopDirectionalIsolate = 0x2069;
                                                          range:NSMakeRange(0, self.length)].location != NSNotFound;
 }
 
-- (BOOL)isValidE164
+- (BOOL)isValidDomain
 {
-    NSError *error = nil;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^\\+\\d+$"
-                                                                           options:NSRegularExpressionCaseInsensitive
-                                                                             error:&error];
-    if (error || !regex) {
-        OWSFailDebug(@"could not compile regex: %@", error);
-        return NO;
-    }
-    return [regex rangeOfFirstMatchInString:self options:0 range:NSMakeRange(0, self.length)].location != NSNotFound;
+    // TODO: MS - implement
+    return YES;
 }
 
 + (NSString *)formatDurationSeconds:(uint32_t)durationSeconds useShortFormat:(BOOL)useShortFormat
