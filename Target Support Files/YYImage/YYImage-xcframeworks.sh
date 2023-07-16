@@ -17,16 +17,16 @@ RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
 variant_for_slice()
 {
   case "$1" in
-  "WebP.xcframework/ios-arm64_x86_64-maccatalyst")
-    echo "maccatalyst"
+  "WebP.xcframework/ios-arm64_armv7_armv7s")
+    echo ""
     ;;
   "WebP.xcframework/ios-arm64_i386_x86_64-simulator")
     echo "simulator"
     ;;
-  "WebP.xcframework/macos-arm64_x86_64")
-    echo ""
+  "WebP.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "maccatalyst"
     ;;
-  "WebP.xcframework/ios-arm64_armv7_armv7s")
+  "WebP.xcframework/macos-arm64_x86_64")
     echo ""
     ;;
   esac
@@ -35,17 +35,17 @@ variant_for_slice()
 archs_for_slice()
 {
   case "$1" in
-  "WebP.xcframework/ios-arm64_x86_64-maccatalyst")
-    echo "arm64 x86_64"
+  "WebP.xcframework/ios-arm64_armv7_armv7s")
+    echo "arm64 armv7 armv7s"
     ;;
   "WebP.xcframework/ios-arm64_i386_x86_64-simulator")
     echo "arm64 i386 x86_64"
     ;;
-  "WebP.xcframework/macos-arm64_x86_64")
+  "WebP.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "arm64 x86_64"
     ;;
-  "WebP.xcframework/ios-arm64_armv7_armv7s")
-    echo "arm64 armv7 armv7s"
+  "WebP.xcframework/macos-arm64_x86_64")
+    echo "arm64 x86_64"
     ;;
   esac
 }
@@ -129,5 +129,5 @@ install_xcframework() {
   echo "Copied $source to $destination"
 }
 
-install_xcframework "${PODS_ROOT}/YYImage/Vendor/WebP.xcframework" "YYImage/WebP" "library" "ios-arm64_x86_64-maccatalyst" "ios-arm64_i386_x86_64-simulator" "ios-arm64_armv7_armv7s"
+install_xcframework "${PODS_ROOT}/YYImage/Vendor/WebP.xcframework" "YYImage/WebP" "library" "ios-arm64_armv7_armv7s" "ios-arm64_i386_x86_64-simulator" "ios-arm64_x86_64-maccatalyst"
 
