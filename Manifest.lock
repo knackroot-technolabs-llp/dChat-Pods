@@ -4,7 +4,6 @@ PODS:
   - CocoaLumberjack (3.7.4):
     - CocoaLumberjack/Core (= 3.7.4)
   - CocoaLumberjack/Core (3.7.4)
-  - CryptoSwift (1.5.1)
   - Curve25519Kit (2.1.0):
     - CocoaLumberjack
     - LibSignalClient (>= 0.15.0)
@@ -104,9 +103,45 @@ PODS:
   - SSZipArchive (2.1.4)
   - Starscream (3.1.1)
   - SwiftProtobuf (1.15.0)
-  - WalletConnectSwift (1.6.0):
-    - CryptoSwift (~> 1.4)
-    - Starscream (~> 3.1)
+  - WalletConnectSwiftV2 (1.6.13):
+    - WalletConnectSwiftV2/WalletConnect (= 1.6.13)
+  - WalletConnectSwiftV2/Commons (1.6.13)
+  - WalletConnectSwiftV2/HTTPClient (1.6.13)
+  - WalletConnectSwiftV2/JSONRPC (1.6.13):
+    - WalletConnectSwiftV2/Commons
+  - WalletConnectSwiftV2/WalletConnect (1.6.13):
+    - WalletConnectSwiftV2/WalletConnectAuth
+    - WalletConnectSwiftV2/WalletConnectEcho
+    - WalletConnectSwiftV2/WalletConnectSign
+    - WalletConnectSwiftV2/WalletConnectVerify
+  - WalletConnectSwiftV2/WalletConnectAuth (1.6.13):
+    - WalletConnectSwiftV2/WalletConnectPairing
+    - WalletConnectSwiftV2/WalletConnectSigner
+    - WalletConnectSwiftV2/WalletConnectVerify
+  - WalletConnectSwiftV2/WalletConnectEcho (1.6.13):
+    - WalletConnectSwiftV2/WalletConnectJWT
+    - WalletConnectSwiftV2/WalletConnectNetworking
+  - WalletConnectSwiftV2/WalletConnectJWT (1.6.13):
+    - WalletConnectSwiftV2/WalletConnectKMS
+  - WalletConnectSwiftV2/WalletConnectKMS (1.6.13):
+    - WalletConnectSwiftV2/WalletConnectUtils
+  - WalletConnectSwiftV2/WalletConnectNetworking (1.6.13):
+    - WalletConnectSwiftV2/HTTPClient
+    - WalletConnectSwiftV2/WalletConnectRelay
+  - WalletConnectSwiftV2/WalletConnectPairing (1.6.13):
+    - WalletConnectSwiftV2/WalletConnectNetworking
+  - WalletConnectSwiftV2/WalletConnectRelay (1.6.13):
+    - WalletConnectSwiftV2/WalletConnectJWT
+  - WalletConnectSwiftV2/WalletConnectSign (1.6.13):
+    - WalletConnectSwiftV2/WalletConnectPairing
+    - WalletConnectSwiftV2/WalletConnectVerify
+  - WalletConnectSwiftV2/WalletConnectSigner (1.6.13):
+    - WalletConnectSwiftV2/WalletConnectNetworking
+  - WalletConnectSwiftV2/WalletConnectUtils (1.6.13):
+    - WalletConnectSwiftV2/JSONRPC
+  - WalletConnectSwiftV2/WalletConnectVerify (1.6.13):
+    - WalletConnectSwiftV2/WalletConnectNetworking
+    - WalletConnectSwiftV2/WalletConnectUtils
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
   - YYImage/Core (1.0.4)
@@ -145,7 +180,7 @@ DEPENDENCIES:
   - SSZipArchive
   - Starscream (from `https://github.com/signalapp/Starscream.git`, branch `signal-release`)
   - SwiftProtobuf (>= 1.14.0)
-  - WalletConnectSwift
+  - WalletConnectSwiftV2 (from `https://github.com/knackroot-technolabs-llp/WalletConnectSwiftV2`, branch `main`)
   - YYImage (from `https://github.com/signalapp/YYImage`)
   - YYImage/libwebp (from `https://github.com/signalapp/YYImage`)
 
@@ -153,7 +188,6 @@ SPEC REPOS:
   trunk:
     - BonMot
     - CocoaLumberjack
-    - CryptoSwift
     - GRDB.swift
     - libwebp
     - Logging
@@ -164,7 +198,6 @@ SPEC REPOS:
     - SQLCipher
     - SSZipArchive
     - SwiftProtobuf
-    - WalletConnectSwift
 
 EXTERNAL SOURCES:
   blurhash:
@@ -204,6 +237,9 @@ EXTERNAL SOURCES:
   Starscream:
     :branch: signal-release
     :git: https://github.com/signalapp/Starscream.git
+  WalletConnectSwiftV2:
+    :branch: main
+    :git: https://github.com/knackroot-technolabs-llp/WalletConnectSwiftV2
   YYImage:
     :git: https://github.com/signalapp/YYImage
 
@@ -245,6 +281,9 @@ CHECKOUT OPTIONS:
   Starscream:
     :commit: 71ebc08f248256497a237ece262e42e7ad05c4a5
     :git: https://github.com/signalapp/Starscream.git
+  WalletConnectSwiftV2:
+    :commit: 7f75e6036994d4a9a5a10b0f9484262abcd32da7
+    :git: https://github.com/knackroot-technolabs-llp/WalletConnectSwiftV2
   YYImage:
     :commit: 62a4cede20bcf31da73d18163408e46a92f171c6
     :git: https://github.com/signalapp/YYImage
@@ -253,7 +292,6 @@ SPEC CHECKSUMS:
   blurhash: 4b3b2b8909cf41ab59fa349788654b8387284ff4
   BonMot: fb2b6a2209cb3149aca37b7131d49c051c04ae86
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
-  CryptoSwift: c4f2debceb38bf44c80659afe009f71e23e4a082
   Curve25519Kit: 1b98dc2d6e7e3d5b6756b05b96758f6161e6d58d
   GRDB.swift: e4a950fe99d113ea5d24571d49eaae0062303c14
   LibMobileCoin: 40d2d7d685321a6128871b6c6b4bb7cba25e848f
@@ -277,9 +315,9 @@ SPEC CHECKSUMS:
   SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftProtobuf: 3320217e9d8fb75f36b40282e78c482640fd75dd
-  WalletConnectSwift: 1fbff8f5315bd8d41596773ca1b384aa873b6824
+  WalletConnectSwiftV2: bb792b1f8b1bb31d32bc9f56cbafe2e712800df4
   YYImage: f1ddd15ac032a58b78bbed1e012b50302d318331
 
-PODFILE CHECKSUM: 2768ace7eedf276c989c7b86af384a18aa2afc5c
+PODFILE CHECKSUM: ef9a0d523e4d1302637eded481b4f39033e6e342
 
 COCOAPODS: 1.12.1
